@@ -44,6 +44,8 @@ namespace Keyworks.Application
 
                 model.Id = colaborador.Id;
 
+                _geralPersist.Update(model);
+
                 if (await _geralPersist.SaveChangesAsync())
                 {
                     return await _colaboradorPersist.GetColaboradorByIdAsync(model.Id);

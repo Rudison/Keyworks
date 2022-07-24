@@ -39,9 +39,14 @@ namespace Keyworks.API
 
             services.AddControllers();
 
-            services.AddScoped<IColaboradorService, ColaboradorService>();
             services.AddScoped<IGeralPersist, GeralPersist>();
+
+            services.AddScoped<IColaboradorService, ColaboradorService>();
             services.AddScoped<IColaboradorPersist, ColaboradorPersist>();
+
+            services.AddScoped<ITituloService, TituloService>();
+            services.AddScoped<ITitulosPersist, TituloPersist>();
+
 
             services.AddSwaggerGen(c =>
             {
