@@ -11,7 +11,7 @@ namespace Keyworks.Application.Contratos
         Task<StatusCard> AddStatusCard(StatusCard model);
         Task<StatusCard> UpdateStatusCard(int id, StatusCard model);
         Task<bool> DeleteStatusCard(int id);
-        Task<StatusCard[]> GetAllStatusCardByNomeAsync(string descricao);
+        Task<StatusCard[]> GetAllStatusCardByDescricaoAsync(string descricao);
         Task<StatusCard[]> GetAllStatusCardAsync();
         Task<StatusCard> GetStatusCardByIdAsync(int id);
     }

@@ -26,7 +26,7 @@ namespace Keyworks.Persistence
             return await query.ToArrayAsync();
         }
 
-        public async Task<SituacaoCard[]> GetAllSituacoesByNomeAsync(string descricao)
+        public async Task<SituacaoCard[]> GetAllSituacoesByDescricaoAsync(string descricao)
         {
             IQueryable<SituacaoCard> query = _context.SituacaoCards;
 

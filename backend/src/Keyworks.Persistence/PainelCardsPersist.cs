@@ -26,6 +26,15 @@ namespace Keyworks.Persistence
             return await query.ToArrayAsync();
         }
 
+        public async Task<PainelCards[]> GetAllPainelCardsAsync()
+        {
+            IQueryable<PainelCards> query = _context.PainelCards;
+
+            query = query.AsNoTracking().OrderBy(p => p.Id);
+
+            return await query.ToArrayAsync();
+        }
+
         public async Task<PainelCards> GetPainelCardByIdAsync(int id)
         {
             IQueryable<PainelCards> query = _context.PainelCards;

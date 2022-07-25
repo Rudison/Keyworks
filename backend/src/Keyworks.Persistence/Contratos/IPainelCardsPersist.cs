@@ -8,6 +8,7 @@ namespace Keyworks.Persistence.Contratos
 {
     public interface IPainelCardsPersist
     {
+        Task<PainelCards[]> GetAllPainelCardsAsync();
         Task<PainelCards[]> GetAllPaineisCardBySituacaoAsync(int situacaoId);
         Task<PainelCards> GetPainelCardByIdAsync(int id);
     }

@@ -47,6 +47,17 @@ namespace Keyworks.API
             services.AddScoped<ITituloService, TituloService>();
             services.AddScoped<ITitulosPersist, TituloPersist>();
 
+            services.AddScoped<IStatusCardService, StatusCardService>();
+            services.AddScoped<IStatusCardPersist, StatusCardPersist>();
+
+            services.AddScoped<ICardService, CardService>();
+            services.AddScoped<ICardPersist, CardPersist>();
+
+            services.AddScoped<ISituacaoCardService, SituacaoCardService>();
+            services.AddScoped<ISituacaoCardPersist, SituacaoCardPersist>();
+
+            services.AddScoped<IPainelCardService, PainelCardService>();
+            services.AddScoped<IPainelCardsPersist, PainelCardsPersist>();
 
             services.AddSwaggerGen(c =>
             {

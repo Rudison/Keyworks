@@ -8,7 +8,7 @@ namespace Keyworks.Persistence.Contratos
 {
     public interface ISituacaoCardPersist
     {
-        Task<SituacaoCard[]> GetAllSituacoesByNomeAsync(string descricao);
+        Task<SituacaoCard[]> GetAllSituacoesByDescricaoAsync(string descricao);
         Task<SituacaoCard[]> GetAllSituacoesAsync();
         Task<SituacaoCard> GetSituacaoByIdAsync(int id);
     }
