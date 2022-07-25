@@ -1,5 +1,6 @@
 import { Component, OnInit, TemplateRef } from '@angular/core';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
+import { NgxSpinnerService } from 'ngx-spinner';
 import { ToastrService } from 'ngx-toastr';
 import { Titulo } from 'src/app/models/Titulo';
 import { TituloService } from 'src/app/services/Titulo.service';
@@ -15,10 +16,12 @@ export class TituloComponent implements OnInit {
   constructor(
     private tituloService: TituloService,
     private modalService: BsModalService,
-    private toastr: ToastrService
+    private toastr: ToastrService,
+    private spinner: NgxSpinnerService
   ) {}
 
   public ngOnInit(): void {
+    this.spinner.show();
     this.getTitulos();
   }
 
@@ -53,8 +56,13 @@ export class TituloComponent implements OnInit {
         this.titulos = titulos;
         this.titulosFiltrados = this.titulos;
       },
-      error: (error: any) => console.log(error),
-      complete: () => {},
+      error: (error: any) => {
+        this.spinner.hide();
+        this.toastr.error('Erro ao Carregar Titulos', 'Erro!');
+      },
+      complete: () => {
+        this.spinner.hide();
+      },
     };
 
     this.tituloService.getTitulos().subscribe(observer);

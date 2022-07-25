@@ -1,4 +1,4 @@
-import { Component, OnInit, TemplateRef } from '@angular/core';
+import { Component, Input, OnInit, TemplateRef } from '@angular/core';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { ToastrService } from 'ngx-toastr';
 import { Colaborador } from '../../models/Colaborador';
@@ -60,8 +60,14 @@ export class ColaboradorComponent implements OnInit {
     this.colaboradorService.getColaboradores().subscribe(observer);
   }
 
+  public insertColaborador(): void {}
+
   openModal(template: TemplateRef<any>): void {
     this.modalRef = this.modalService.show(template, { class: 'modal-sm' });
+  }
+
+  modalInsert(templateInsert: TemplateRef<any>) {
+    this.modalRef = this.modalService.show(templateInsert);
   }
 
   confirm(): void {

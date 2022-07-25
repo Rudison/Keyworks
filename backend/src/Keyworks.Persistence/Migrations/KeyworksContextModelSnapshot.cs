@@ -81,6 +81,26 @@ namespace Keyworks.Persistence.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Colaboradores");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Nome = "Afonso",
+                            Sobrenome = "Solano"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Nome = "Pedro",
+                            Sobrenome = "Henrique"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Nome = "Wellington",
+                            Sobrenome = "Oliveira"
+                        });
                 });
 
             modelBuilder.Entity("Keyworks.Domain.PainelCards", b =>
@@ -89,19 +109,10 @@ namespace Keyworks.Persistence.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<int>("CardId")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<int>("OrdemCard")
-                        .HasColumnType("INTEGER");
-
                     b.Property<int>("PosicaoHorizontal")
                         .HasColumnType("INTEGER");
 
                     b.Property<int>("PosicaoVertical")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<int?>("SituacaoCardId")
                         .HasColumnType("INTEGER");
 
                     b.Property<int>("SituacaoId")
@@ -109,11 +120,44 @@ namespace Keyworks.Persistence.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("CardId");
-
-                    b.HasIndex("SituacaoCardId");
-
                     b.ToTable("PainelCards");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            PosicaoHorizontal = 0,
+                            PosicaoVertical = 0,
+                            SituacaoId = 1
+                        },
+                        new
+                        {
+                            Id = 2,
+                            PosicaoHorizontal = 1,
+                            PosicaoVertical = 0,
+                            SituacaoId = 2
+                        },
+                        new
+                        {
+                            Id = 3,
+                            PosicaoHorizontal = 2,
+                            PosicaoVertical = 0,
+                            SituacaoId = 3
+                        },
+                        new
+                        {
+                            Id = 4,
+                            PosicaoHorizontal = 3,
+                            PosicaoVertical = 0,
+                            SituacaoId = 4
+                        },
+                        new
+                        {
+                            Id = 5,
+                            PosicaoHorizontal = 4,
+                            PosicaoVertical = 0,
+                            SituacaoId = 4
+                        });
                 });
 
             modelBuilder.Entity("Keyworks.Domain.SituacaoCard", b =>
@@ -125,9 +169,41 @@ namespace Keyworks.Persistence.Migrations
                     b.Property<string>("Descricao")
                         .HasColumnType("TEXT");
 
+                    b.Property<int?>("PainelCardsId")
+                        .HasColumnType("INTEGER");
+
                     b.HasKey("Id");
 
+                    b.HasIndex("PainelCardsId");
+
                     b.ToTable("SituacaoCards");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Descricao = "Aguardando"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Descricao = "Em Adamento"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Descricao = "Pendência"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            Descricao = "Finalizado"
+                        },
+                        new
+                        {
+                            Id = 5,
+                            Descricao = "Outros"
+                        });
                 });
 
             modelBuilder.Entity("Keyworks.Domain.StatusCard", b =>
@@ -142,6 +218,23 @@ namespace Keyworks.Persistence.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("StatusCards");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Descricao = "Em Dia"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Descricao = "Atenção"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Descricao = "Em Atraso"
+                        });
                 });
 
             modelBuilder.Entity("Keyworks.Domain.Titulo", b =>
@@ -156,6 +249,23 @@ namespace Keyworks.Persistence.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Titulos");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Descricao = "Desenvolvimento"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Descricao = "UX|UI"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Descricao = "Financeiro"
+                        });
                 });
 
             modelBuilder.Entity("Keyworks.Domain.Card", b =>
@@ -181,20 +291,17 @@ namespace Keyworks.Persistence.Migrations
                     b.Navigation("Titulo");
                 });
 
+            modelBuilder.Entity("Keyworks.Domain.SituacaoCard", b =>
+                {
+                    b.HasOne("Keyworks.Domain.PainelCards", "PainelCards")
+                        .WithMany("SituacaoCard")
+                        .HasForeignKey("PainelCardsId");
+
+                    b.Navigation("PainelCards");
+                });
+
             modelBuilder.Entity("Keyworks.Domain.PainelCards", b =>
                 {
-                    b.HasOne("Keyworks.Domain.Card", "Card")
-                        .WithMany()
-                        .HasForeignKey("CardId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("Keyworks.Domain.SituacaoCard", "SituacaoCard")
-                        .WithMany()
-                        .HasForeignKey("SituacaoCardId");
-
-                    b.Navigation("Card");
-
                     b.Navigation("SituacaoCard");
                 });
 #pragma warning restore 612, 618

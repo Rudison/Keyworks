@@ -1,0 +1,131 @@
+<!-- <div class="d-flex justify-content-start">
+  <div class="menuPrincipal"></div>
+  <div class="menuSecundario"></div>
+  <div class="menuTop">
+    <div class="menuTopTarefas"></div>
+  </div>
+</div>
+
+<style>
+  .menuPrincipal {
+    top: -5.364418598219345e-8px;
+    left: 0px;
+    width: 64px;
+    height: 1080px;
+    /* UI Properties */
+    background: var(--unnamed-color-8cc587) 0% 0% no-repeat padding-box;
+    background: #8cc587 0% 0% no-repeat padding-box;
+    box-shadow: 20px 35px 50px #0000001a;
+    opacity: 1;
+  }
+  .menuSecundario {
+    top: 0px;
+    left: 64px;
+    width: 64px;
+    height: 1080px;
+    /* UI Properties */
+    background: #ffffff 0% 0% no-repeat padding-box;
+    box-shadow: 0px 3px 6px #00000029;
+    opacity: 1;
+  }
+  .menuTop {
+    top: 0px;
+    left: 128px;
+    width: 100%;
+    height: 64px;
+    /* UI Properties */
+    background: var(--unnamed-color-8cc587) 0% 0% no-repeat padding-box;
+    background: #8cc587 0% 0% no-repeat padding-box;
+    opacity: 1;
+  }
+  .menuTopTarefas {
+    border: 2px solid var(--unnamed-color-8cc587);
+    background: #ffffff 0% 0% no-repeat padding-box;
+    border: 2px solid #8cc587;
+    opacity: 1;
+  }
+</style> -->
+<nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Keyworks</a>
+    <button
+      class="navbar-toggler"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarScroll"
+      aria-controls="navbarScroll"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarScroll">
+      <ul
+        class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll"
+        style="--bs-scroll-height: 100px"
+      >
+        <li class="nav-item dropdown" dropdown routerLinkActive="active">
+          <a
+            dropdownToggle
+            class="nav-link dropdown-toggle"
+            id="navbarDropdownMenuLink"
+            style="cursor: pointer"
+            data-toggle="dropdown"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >
+            Cadastros
+          </a>
+          <div
+            *dropdownMenu
+            class="dropdown-menu"
+            aria-labelledby="navbarDropdownMenuLink"
+          >
+            <a class="dropdown-item" routerLink="colaboradores">Colaborador</a>
+            <a class="dropdown-item" routerLink="titulos">Titulos Card </a>
+            <a class="dropdown-item" routerLink="statusCard">Status Card</a>
+            <a class="dropdown-item" routerLink="situacaoCards">
+              Stituação Card</a
+            >
+          </div>
+        </li>
+      </ul>
+      <ul class="navbar-nav">
+        <li class="nav-item dropdown" dropdown>
+          <a
+            dropdownToggle
+            class="nav-link dropdown-toggle"
+            style="cursor: pointer"
+            id="navbarDropdownMenuLink"
+            data-toggle="dropdown"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >
+            Rudison
+          </a>
+          <div
+            *dropdownMenu
+            class="dropdown-menu"
+            aria-labelledby="navbarDropdownMenuLink"
+          >
+            <a class="dropdown-item" href="#"> Perfil </a>
+            <div role="separator" class="divider"></div>
+            <a class="dropdown-item" href="#"> Sair </a>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div style="float: left">
+  <button
+    type="button"
+    class="btn btn-outline-primary ms-2 mt-2"
+    tooltip="Novo Card"
+    placement="top"
+    style="border-radius: 25px"
+    (click)="openModalCard()"
+  >
+    <i class="fa fa-plus"></i>
+  </button>
+</div>

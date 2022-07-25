@@ -1,3 +1,19 @@
-<p>
-  painelCard works!
-</p>
+<div class="d-flex justify-content-around">
+  <div class="mt-5" *ngFor="let paineis of paineisCards">
+    <div class="card" style="width: 18rem; margin-left: 20px">
+      <div class="d-flex card-body justify-content-between">
+        <h5 class="card-title">{{ paineis.situacaoCard.descricao }}</h5>
+        <div>
+          <i class="fa fa-clock d-flex ml-2"> <h6 class="ml-2">1h</h6></i>
+        </div>
+      </div>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">An item</li>
+      </ul>
+      <div class="card-body">
+        <a href="#" class="card-link">Card link</a>
+        <a href="#" class="card-link">Another link</a>
+      </div>
+    </div>
+  </div>
+</div>

@@ -19,7 +19,7 @@ namespace Keyworks.Persistence
 
         public async Task<PainelCards[]> GetAllPaineisCardBySituacaoAsync(int situacaoId)
         {
-            IQueryable<PainelCards> query = _context.PainelCards;
+            IQueryable<PainelCards> query = _context.PainelCards.Include(p => p.SituacaoCard);
 
             query = query.AsNoTracking().OrderBy(p => p.Id).Where(p => p.SituacaoId == situacaoId);
 
@@ -28,7 +28,7 @@ namespace Keyworks.Persistence
 
         public async Task<PainelCards[]> GetAllPainelCardsAsync()
         {
-            IQueryable<PainelCards> query = _context.PainelCards;
+            IQueryable<PainelCards> query = _context.PainelCards.Include(p => p.SituacaoCard);
 
             query = query.AsNoTracking().OrderBy(p => p.Id);
 

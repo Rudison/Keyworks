@@ -25,3 +25,20 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+#### Instalação do Projeto
+
+clonar o repositorio:
+https://github.com/Rudison/Keyworks.git
+
+## configurar frontend
+
+-> entrar na raiz do projeto Keyworks-App
+instalar o projeto: npm install
+
+## configurar backend
+
+-> entrar em src e rodar as migrations
+dotnet ef migrations add Initial -p .\Keyworks.Persistence\ -s .\Keyworks.API\
+-> depois rodar as migrations ainda na raiz src
+dotnet ef database update -s .\Keyworks.API\
