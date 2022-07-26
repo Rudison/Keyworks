@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CardComponent } from './components/card/card.component';
 import { ColaboradorComponent } from './components/colaborador/colaborador.component';
+import { PainelComponent } from './components/Painel/Painel.component';
 import { PainelCardComponent } from './components/painelCard/painelCard.component';
 import { SituacaoCardComponent } from './components/situacaoCard/situacaoCard.component';
 import { StatusCardComponent } from './components/statusCard/statusCard.component';
@@ -33,13 +34,17 @@ const routes: Routes = [
     component: PainelCardComponent,
   },
   {
+    path: 'painel',
+    component: PainelComponent,
+  },
+  {
     path: '',
-    redirectTo: 'painelCards',
+    redirectTo: 'painel',
     pathMatch: 'full',
   },
   {
     path: '**',
-    redirectTo: 'painelCards',
+    redirectTo: 'painel',
     pathMatch: 'full',
   },
 ];

@@ -12,7 +12,8 @@ namespace Keyworks.Application.Contratos
         Task<PainelCards> UpdatePainelCards(int id, PainelCards model);
         Task<bool> DeletePainelCards(int id);
         Task<PainelCards[]> GetAllPainelCardsAsync();
-        Task<PainelCards[]> GetAllPaineisCardBySituacaoAsync(int situacaoId);
+        Task<PainelCards[]> GetAllPaineisCardByPainelAsync(int painelId);
         Task<PainelCards> GetPainelCardByIdAsync(int id);
+        Task<dynamic> GetAllCompletePaineisAsync(int situacaoId);
     }
 }

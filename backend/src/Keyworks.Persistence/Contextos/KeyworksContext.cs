@@ -11,6 +11,7 @@ namespace Keyworks.Persistence.Contextos
     {
         public KeyworksContext(DbContextOptions<KeyworksContext> options) : base(options) { }
         public DbSet<PainelCards> PainelCards { get; set; }
+        public DbSet<Painel> Paineis { get; set; }
         public DbSet<Card> Cards { get; set; }
         public DbSet<Colaborador> Colaboradores { get; set; }
         public DbSet<SituacaoCard> SituacaoCards { get; set; }
@@ -19,6 +20,9 @@ namespace Keyworks.Persistence.Contextos
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            // modelBuilder.Entity<PainelCards>()
+            // .HasKey(p => new { p.CardId, p.PainelId });
+
             modelBuilder.Entity<Colaborador>()
             .HasData(
                 new Colaborador
@@ -108,44 +112,222 @@ namespace Keyworks.Persistence.Contextos
                }
           );
 
-            modelBuilder.Entity<PainelCards>()
+            modelBuilder.Entity<Painel>()
            .HasData(
-               new PainelCards
+               new Painel
                {
                    Id = 1,
                    SituacaoId = 1,
                    PosicaoVertical = 0,
                    PosicaoHorizontal = 0
                },
-               new PainelCards
+               new Painel
                {
                    Id = 2,
                    SituacaoId = 2,
                    PosicaoVertical = 0,
                    PosicaoHorizontal = 1
                },
-               new PainelCards
+               new Painel
                {
                    Id = 3,
                    SituacaoId = 3,
                    PosicaoVertical = 0,
                    PosicaoHorizontal = 2
                },
-                new PainelCards
+                new Painel
                 {
                     Id = 4,
                     SituacaoId = 4,
                     PosicaoVertical = 0,
                     PosicaoHorizontal = 3
                 },
-                new PainelCards
+                new Painel
                 {
                     Id = 5,
-                    SituacaoId = 4,
+                    SituacaoId = 5,
                     PosicaoVertical = 0,
                     PosicaoHorizontal = 4
                 }
            );
+            modelBuilder.Entity<Card>()
+            .HasData(
+                new Card
+                {
+                    Id = 1,
+                    TituloId = 1, //Desenvol/UX/Financeiro
+                    SituacaoId = 1,//Aguardando/Em Andamento/
+                    StatusId = 1,//Em dia/Atencao
+                    NomeProjeto = "CRIAR MIGRATION",
+                    DataPrevisao = new DateTime(2022, 07, 26),
+                    Descricao = "Usar a branch master, fazer pull",
+                    Previsto = new TimeSpan(0, 5, 10),
+                    Saldo = new TimeSpan(0, 5, 5),
+                    Equipe = "AS, PH, WC",
+                },
+                new Card
+                {
+                    Id = 2,
+                    TituloId = 1,
+                    SituacaoId = 1,
+                    StatusId = 2,
+                    NomeProjeto = "CRIAR SELECT DO RELATORIO",
+                    DataPrevisao = new DateTime(2022, 07, 27),
+                    Descricao = "Criar o select para o relatorio de vendas",
+                    Previsto = new TimeSpan(0, 5, 10),
+                    Saldo = new TimeSpan(0, 5, 5),
+                    Equipe = "AS, PH, WC",
+                },
+                new Card
+                {
+                    Id = 3,
+                    TituloId = 2,
+                    SituacaoId = 2,
+                    StatusId = 2,
+                    NomeProjeto = "CRIAR NOVA HUD",
+                    DataPrevisao = new DateTime(2022, 07, 28),
+                    Descricao = "Criar nova hud para pontuacao",
+                    Previsto = new TimeSpan(0, 5, 10),
+                    Saldo = new TimeSpan(0, 5, 5),
+                    Equipe = "AS, PH, WC",
+                },
+                 new Card
+                 {
+                     Id = 4,
+                     TituloId = 3, //Desenvol/UX/Financeiro
+                     SituacaoId = 4,//Aguardando/Em Andamento/
+                     StatusId = 1,//Em dia/Atencao
+                     NomeProjeto = "CRIAR PAINEL DE CONTROLE",
+                     DataPrevisao = new DateTime(2022, 07, 29),
+                     Descricao = "Desenvolver o painel conforme os padroes",
+                     Previsto = new TimeSpan(0, 5, 10),
+                     Saldo = new TimeSpan(0, 5, 5),
+                     Equipe = "AS, PH, WC",
+                 },
+                 new Card
+                 {
+                     Id = 5,
+                     TituloId = 2,
+                     SituacaoId = 3,
+                     StatusId = 2,
+                     NomeProjeto = "CRIAR MIGRATION",
+                     DataPrevisao = new DateTime(2022, 07, 30),
+                     Descricao = "Usar a branch master, fazer pull",
+                     Previsto = new TimeSpan(0, 5, 10),
+                     Saldo = new TimeSpan(0, 5, 5),
+                     Equipe = "AS, PH, WC",
+                 },
+                 new Card
+                 {
+                     Id = 6,
+                     TituloId = 3,
+                     SituacaoId = 2,
+                     StatusId = 3,
+                     NomeProjeto = "CRIAR MIGRATION",
+                     DataPrevisao = new DateTime(2022, 07, 30),
+                     Descricao = "Usar a branch master, fazer pull",
+                     Previsto = new TimeSpan(0, 5, 10),
+                     Saldo = new TimeSpan(0, 5, 5),
+                     Equipe = "AS, PH, WC",
+                 },
+                  new Card
+                  {
+                      Id = 7,
+                      TituloId = 3,
+                      SituacaoId = 2,
+                      StatusId = 2,
+                      NomeProjeto = "CRIAR MIGRATION",
+                      DataPrevisao = new DateTime(2022, 07, 30),
+                      Descricao = "Usar a branch master, fazer pull",
+                      Previsto = new TimeSpan(0, 5, 10),
+                      Saldo = new TimeSpan(0, 5, 5),
+                      Equipe = "AS, PH, WC",
+                  },
+                 new Card
+                 {
+                     Id = 8,
+                     TituloId = 3,
+                     SituacaoId = 3,
+                     StatusId = 1,
+                     NomeProjeto = "CRIAR MIGRATION",
+                     DataPrevisao = new DateTime(2022, 07, 30),
+                     Descricao = "Usar a branch master, fazer pull",
+                     Previsto = new TimeSpan(0, 5, 10),
+                     Saldo = new TimeSpan(0, 5, 5),
+                     Equipe = "AS, PH, WC",
+                 },
+                 new Card
+                 {
+                     Id = 9,
+                     TituloId = 3,
+                     SituacaoId = 3,
+                     StatusId = 3,
+                     NomeProjeto = "CRIAR MIGRATION",
+                     DataPrevisao = new DateTime(2022, 07, 30),
+                     Descricao = "Usar a branch master, fazer pull",
+                     Previsto = new TimeSpan(0, 5, 10),
+                     Saldo = new TimeSpan(0, 5, 5),
+                     Equipe = "AS, PH, WC",
+                 }
+            );
+
+            modelBuilder.Entity<PainelCards>()
+       .HasData(
+           new PainelCards
+           {
+               Id = 1,
+               CardId = 1,
+               PainelId = 1
+           },
+           new PainelCards
+           {
+               Id = 2,
+               CardId = 2,
+               PainelId = 1
+           },
+           new PainelCards
+           {
+               Id = 3,
+               CardId = 3,
+               PainelId = 2
+           },
+            new PainelCards
+            {
+                Id = 4,
+                CardId = 4,
+                PainelId = 4
+            },
+            new PainelCards
+            {
+                Id = 5,
+                CardId = 5,
+                PainelId = 3
+            },
+            new PainelCards
+            {
+                Id = 6,
+                CardId = 6,
+                PainelId = 4
+            },
+            new PainelCards
+            {
+                Id = 7,
+                CardId = 7,
+                PainelId = 4
+            },
+            new PainelCards
+            {
+                Id = 8,
+                CardId = 8,
+                PainelId = 4
+            },
+            new PainelCards
+            {
+                Id = 9,
+                CardId = 9,
+                PainelId = 5
+            }
+       );
         }
     }
 }

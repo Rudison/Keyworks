@@ -59,6 +59,9 @@ namespace Keyworks.API
             services.AddScoped<IPainelCardService, PainelCardService>();
             services.AddScoped<IPainelCardsPersist, PainelCardsPersist>();
 
+            services.AddScoped<IPainelService, PainelService>();
+            services.AddScoped<IPainelPersist, PainelPersist>();
+
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Keyworks.API", Version = "v1" });

@@ -64,6 +64,125 @@ namespace Keyworks.Persistence.Migrations
                     b.HasIndex("TituloId");
 
                     b.ToTable("Cards");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            DataPrevisao = new DateTime(2022, 7, 26, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Descricao = "Usar a branch master, fazer pull",
+                            Equipe = "AS, PH, WC",
+                            NomeProjeto = "CRIAR MIGRATION",
+                            Previsto = new TimeSpan(0, 0, 5, 10, 0),
+                            Saldo = new TimeSpan(0, 0, 5, 5, 0),
+                            SituacaoId = 1,
+                            StatusId = 1,
+                            TituloId = 1
+                        },
+                        new
+                        {
+                            Id = 2,
+                            DataPrevisao = new DateTime(2022, 7, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Descricao = "Criar o select para o relatorio de vendas",
+                            Equipe = "AS, PH, WC",
+                            NomeProjeto = "CRIAR SELECT DO RELATORIO",
+                            Previsto = new TimeSpan(0, 0, 5, 10, 0),
+                            Saldo = new TimeSpan(0, 0, 5, 5, 0),
+                            SituacaoId = 1,
+                            StatusId = 2,
+                            TituloId = 1
+                        },
+                        new
+                        {
+                            Id = 3,
+                            DataPrevisao = new DateTime(2022, 7, 28, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Descricao = "Criar nova hud para pontuacao",
+                            Equipe = "AS, PH, WC",
+                            NomeProjeto = "CRIAR NOVA HUD",
+                            Previsto = new TimeSpan(0, 0, 5, 10, 0),
+                            Saldo = new TimeSpan(0, 0, 5, 5, 0),
+                            SituacaoId = 2,
+                            StatusId = 2,
+                            TituloId = 2
+                        },
+                        new
+                        {
+                            Id = 4,
+                            DataPrevisao = new DateTime(2022, 7, 29, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Descricao = "Desenvolver o painel conforme os padroes",
+                            Equipe = "AS, PH, WC",
+                            NomeProjeto = "CRIAR PAINEL DE CONTROLE",
+                            Previsto = new TimeSpan(0, 0, 5, 10, 0),
+                            Saldo = new TimeSpan(0, 0, 5, 5, 0),
+                            SituacaoId = 4,
+                            StatusId = 1,
+                            TituloId = 3
+                        },
+                        new
+                        {
+                            Id = 5,
+                            DataPrevisao = new DateTime(2022, 7, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Descricao = "Usar a branch master, fazer pull",
+                            Equipe = "AS, PH, WC",
+                            NomeProjeto = "CRIAR MIGRATION",
+                            Previsto = new TimeSpan(0, 0, 5, 10, 0),
+                            Saldo = new TimeSpan(0, 0, 5, 5, 0),
+                            SituacaoId = 3,
+                            StatusId = 2,
+                            TituloId = 2
+                        },
+                        new
+                        {
+                            Id = 6,
+                            DataPrevisao = new DateTime(2022, 7, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Descricao = "Usar a branch master, fazer pull",
+                            Equipe = "AS, PH, WC",
+                            NomeProjeto = "CRIAR MIGRATION",
+                            Previsto = new TimeSpan(0, 0, 5, 10, 0),
+                            Saldo = new TimeSpan(0, 0, 5, 5, 0),
+                            SituacaoId = 2,
+                            StatusId = 4,
+                            TituloId = 3
+                        },
+                        new
+                        {
+                            Id = 7,
+                            DataPrevisao = new DateTime(2022, 7, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Descricao = "Usar a branch master, fazer pull",
+                            Equipe = "AS, PH, WC",
+                            NomeProjeto = "CRIAR MIGRATION",
+                            Previsto = new TimeSpan(0, 0, 5, 10, 0),
+                            Saldo = new TimeSpan(0, 0, 5, 5, 0),
+                            SituacaoId = 2,
+                            StatusId = 4,
+                            TituloId = 3
+                        },
+                        new
+                        {
+                            Id = 8,
+                            DataPrevisao = new DateTime(2022, 7, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Descricao = "Usar a branch master, fazer pull",
+                            Equipe = "AS, PH, WC",
+                            NomeProjeto = "CRIAR MIGRATION",
+                            Previsto = new TimeSpan(0, 0, 5, 10, 0),
+                            Saldo = new TimeSpan(0, 0, 5, 5, 0),
+                            SituacaoId = 3,
+                            StatusId = 5,
+                            TituloId = 3
+                        },
+                        new
+                        {
+                            Id = 9,
+                            DataPrevisao = new DateTime(2022, 7, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Descricao = "Usar a branch master, fazer pull",
+                            Equipe = "AS, PH, WC",
+                            NomeProjeto = "CRIAR MIGRATION",
+                            Previsto = new TimeSpan(0, 0, 5, 10, 0),
+                            Saldo = new TimeSpan(0, 0, 5, 5, 0),
+                            SituacaoId = 3,
+                            StatusId = 5,
+                            TituloId = 3
+                        });
                 });
 
             modelBuilder.Entity("Keyworks.Domain.Colaborador", b =>
@@ -103,7 +222,7 @@ namespace Keyworks.Persistence.Migrations
                         });
                 });
 
-            modelBuilder.Entity("Keyworks.Domain.PainelCards", b =>
+            modelBuilder.Entity("Keyworks.Domain.Painel", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -120,7 +239,7 @@ namespace Keyworks.Persistence.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("PainelCards");
+                    b.ToTable("Paineis");
 
                     b.HasData(
                         new
@@ -160,6 +279,83 @@ namespace Keyworks.Persistence.Migrations
                         });
                 });
 
+            modelBuilder.Entity("Keyworks.Domain.PainelCards", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("CardId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("PainelId")
+                        .HasColumnType("INTEGER");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CardId");
+
+                    b.HasIndex("PainelId");
+
+                    b.ToTable("PainelCards");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            CardId = 1,
+                            PainelId = 1
+                        },
+                        new
+                        {
+                            Id = 2,
+                            CardId = 2,
+                            PainelId = 1
+                        },
+                        new
+                        {
+                            Id = 3,
+                            CardId = 3,
+                            PainelId = 2
+                        },
+                        new
+                        {
+                            Id = 4,
+                            CardId = 4,
+                            PainelId = 4
+                        },
+                        new
+                        {
+                            Id = 5,
+                            CardId = 5,
+                            PainelId = 3
+                        },
+                        new
+                        {
+                            Id = 6,
+                            CardId = 6,
+                            PainelId = 4
+                        },
+                        new
+                        {
+                            Id = 7,
+                            CardId = 7,
+                            PainelId = 4
+                        },
+                        new
+                        {
+                            Id = 8,
+                            CardId = 8,
+                            PainelId = 4
+                        },
+                        new
+                        {
+                            Id = 9,
+                            CardId = 9,
+                            PainelId = 5
+                        });
+                });
+
             modelBuilder.Entity("Keyworks.Domain.SituacaoCard", b =>
                 {
                     b.Property<int>("Id")
@@ -169,12 +365,12 @@ namespace Keyworks.Persistence.Migrations
                     b.Property<string>("Descricao")
                         .HasColumnType("TEXT");
 
-                    b.Property<int?>("PainelCardsId")
+                    b.Property<int?>("PainelId")
                         .HasColumnType("INTEGER");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("PainelCardsId");
+                    b.HasIndex("PainelId");
 
                     b.ToTable("SituacaoCards");
 
@@ -291,17 +487,36 @@ namespace Keyworks.Persistence.Migrations
                     b.Navigation("Titulo");
                 });
 
-            modelBuilder.Entity("Keyworks.Domain.SituacaoCard", b =>
-                {
-                    b.HasOne("Keyworks.Domain.PainelCards", "PainelCards")
-                        .WithMany("SituacaoCard")
-                        .HasForeignKey("PainelCardsId");
-
-                    b.Navigation("PainelCards");
-                });
-
             modelBuilder.Entity("Keyworks.Domain.PainelCards", b =>
                 {
+                    b.HasOne("Keyworks.Domain.Card", "Card")
+                        .WithMany()
+                        .HasForeignKey("CardId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Keyworks.Domain.Painel", "Painel")
+                        .WithMany("PainelCards")
+                        .HasForeignKey("PainelId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Card");
+
+                    b.Navigation("Painel");
+                });
+
+            modelBuilder.Entity("Keyworks.Domain.SituacaoCard", b =>
+                {
+                    b.HasOne("Keyworks.Domain.Painel", null)
+                        .WithMany("SituacaoCard")
+                        .HasForeignKey("PainelId");
+                });
+
+            modelBuilder.Entity("Keyworks.Domain.Painel", b =>
+                {
+                    b.Navigation("PainelCards");
+
                     b.Navigation("SituacaoCard");
                 });
 #pragma warning restore 612, 618

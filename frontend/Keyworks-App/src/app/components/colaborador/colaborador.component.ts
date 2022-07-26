@@ -42,8 +42,7 @@ export class ColaboradorComponent implements OnInit {
     filtrarPor = filtrarPor.toLocaleLowerCase();
     return this.colaboradores.filter(
       (colaborador: any) =>
-        colaborador.tema.toLocaleLowerCase().indexOf(filtrarPor) !== -1 ||
-        colaborador.local.toLocaleLowerCase().indexOf(filtrarPor) !== -1
+        colaborador.nome.toLocaleLowerCase().indexOf(filtrarPor) !== -1
     );
   }
 

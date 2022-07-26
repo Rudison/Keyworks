@@ -8,8 +8,8 @@ export class PainelCardsService {
   baseUrl = 'https://localhost:5001/api/painelCard';
   constructor(private http: HttpClient) {}
 
-  public getPaineisCard(): Observable<PainelCard[]> {
-    return this.http.get<PainelCard[]>(this.baseUrl);
+  public getPaineisCard(situacaoId: number): any {
+    return this.http.get<any>(`${this.baseUrl}/situacao/${situacaoId}`);
   }
 
   public getPainelCardsBySituacao(

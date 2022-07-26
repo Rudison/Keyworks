@@ -30,6 +30,8 @@ import { SituacaoCardService } from './services/SituacaoCard.service';
 import { SituacaoCardComponent } from './components/situacaoCard/situacaoCard.component';
 import { PainelCardsService } from './services/PainelCards.service';
 import { PainelCardComponent } from './components/painelCard/painelCard.component';
+import { PaineisService } from './services/Paineis.service';
+import { PainelComponent } from './components/Painel/Painel.component';
 
 @NgModule({
   declarations: [
@@ -42,6 +44,7 @@ import { PainelCardComponent } from './components/painelCard/painelCard.componen
     CardComponent,
     SituacaoCardComponent,
     PainelCardComponent,
+    PainelComponent,
   ],
   imports: [
     BrowserModule,
@@ -69,6 +72,7 @@ import { PainelCardComponent } from './components/painelCard/painelCard.componen
     StatusCardService,
     SituacaoCardService,
     PainelCardsService,
+    PaineisService,
   ],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],

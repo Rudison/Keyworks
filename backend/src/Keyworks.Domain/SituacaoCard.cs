@@ -9,6 +9,5 @@ namespace Keyworks.Domain
     {
         public int Id { get; set; }
         public string Descricao { get; set; }
-        public PainelCards PainelCards { get; set; }
     }
 }

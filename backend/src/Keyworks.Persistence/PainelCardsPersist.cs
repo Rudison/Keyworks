@@ -17,22 +17,49 @@ namespace Keyworks.Persistence
             _context = context;
         }
 
-        public async Task<PainelCards[]> GetAllPaineisCardBySituacaoAsync(int situacaoId)
+        public async Task<PainelCards[]> GetAllPaineisCardByPainelAsync(int painelId)
         {
-            IQueryable<PainelCards> query = _context.PainelCards.Include(p => p.SituacaoCard);
+            IQueryable<PainelCards> query = _context.PainelCards.Include(p => p.Card).Include(p => p.Painel);
 
-            query = query.AsNoTracking().OrderBy(p => p.Id).Where(p => p.SituacaoId == situacaoId);
+            query = query.AsNoTracking().OrderBy(p => p.Id).Where(p => p.PainelId == painelId);
 
             return await query.ToArrayAsync();
         }
 
         public async Task<PainelCards[]> GetAllPainelCardsAsync()
         {
-            IQueryable<PainelCards> query = _context.PainelCards.Include(p => p.SituacaoCard);
+            IQueryable<PainelCards> query = _context.PainelCards.Include(p => p.Painel).Include(p => p.Card);
 
             query = query.AsNoTracking().OrderBy(p => p.Id);
 
             return await query.ToArrayAsync();
+        }
+        public async Task<dynamic> GetAllCompletePaineisAsync(int situacaoId)
+        {
+            var query = (from a in _context.PainelCards
+                         join b in _context.Cards on a.CardId equals b.Id
+                         join c in _context.Paineis on a.PainelId equals c.Id
+                         join d in _context.Titulos on b.TituloId equals d.Id
+                         join e in _context.StatusCards on b.StatusId equals e.Id
+                         join f in _context.SituacaoCards on b.SituacaoId equals f.Id
+                         select new
+                         {
+                             Id = a.Id,
+                             PainelId = c.Id,
+                             Titulo = d.Descricao,
+                             Status = e.Descricao,
+                             SituacaoId = f.Id,
+                             Situacao = f.Descricao,
+                             NomeProjeto = b.NomeProjeto,
+                             DataPrevisao = b.DataPrevisao,
+                             Descricao = b.Descricao,
+                             Previsto = b.Previsto,
+                             Saldo = b.Saldo,
+                             Equipe = b.Equipe
+                         }
+                               ).Where(p => p.SituacaoId == situacaoId).ToArrayAsync();
+
+            return await query;
         }
 
         public async Task<PainelCards> GetPainelCardByIdAsync(int id)

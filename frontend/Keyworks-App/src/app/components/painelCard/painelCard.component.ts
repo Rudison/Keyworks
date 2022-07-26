@@ -1,4 +1,4 @@
-import { Component, OnInit, TemplateRef } from '@angular/core';
+import { Component, Input, OnInit, TemplateRef } from '@angular/core';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { ToastrService } from 'ngx-toastr';
 import { PainelCard } from 'src/app/models/PainelCard';
@@ -11,6 +11,7 @@ import { PainelCardsService } from 'src/app/services/PainelCards.service';
 })
 export class PainelCardComponent implements OnInit {
   modalRef?: BsModalRef;
+  @Input() situacaoId: number = 0;
 
   constructor(
     private painelCardService: PainelCardsService,
@@ -22,8 +23,9 @@ export class PainelCardComponent implements OnInit {
     this.getPaineisCards();
   }
 
-  public paineisCards: PainelCard[] = [];
-  public paineisCardsFiltrados: PainelCard[] = [];
+  public colorStatus: string = '';
+  public paineisCards: any[] = [];
+  public paineisCardsFiltrados: any[] = [];
 
   private _filtroLista: number = 0;
 
@@ -47,7 +49,7 @@ export class PainelCardComponent implements OnInit {
 
   public getPaineisCards(): void {
     const observer = {
-      next: (paineisCards: PainelCard[]) => {
+      next: (paineisCards: any[]) => {
         this.paineisCards = paineisCards;
         this.paineisCardsFiltrados = this.paineisCards;
       },
@@ -55,10 +57,16 @@ export class PainelCardComponent implements OnInit {
       complete: () => {},
     };
 
-    this.painelCardService.getPaineisCard().subscribe(observer);
+    this.painelCardService.getPaineisCard(this.situacaoId).subscribe(observer);
   }
 
-  public insertColaborador(): void {}
+  changeColorStatus(nomeStatus: string): string {
+    if (nomeStatus == 'Em Dia') this.colorStatus = 'btn-success';
+    else if (nomeStatus == 'Atenção') this.colorStatus = 'btn-warning';
+    else if (nomeStatus == 'Em Atraso') this.colorStatus = 'btn-danger';
+
+    return this.colorStatus;
+  }
 
   openModal(template: TemplateRef<any>): void {
     this.modalRef = this.modalService.show(template, { class: 'modal-sm' });

@@ -77,21 +77,6 @@ namespace Keyworks.Application
             }
         }
 
-        public async Task<PainelCards[]> GetAllPaineisCardBySituacaoAsync(int situacaoId)
-        {
-            try
-            {
-                var painelCards = await _painelCardsPersist.GetAllPaineisCardBySituacaoAsync(situacaoId);
-                if (painelCards == null) return null;
-
-                return painelCards;
-            }
-            catch (Exception ex)
-            {
-                throw new Exception(ex.Message);
-            }
-        }
-
         public async Task<PainelCards> GetPainelCardByIdAsync(int id)
         {
             try
@@ -114,12 +99,44 @@ namespace Keyworks.Application
                 var painelCard = await _painelCardsPersist.GetAllPainelCardsAsync();
                 if (painelCard == null) return null;
 
+
                 return painelCard;
             }
             catch (Exception ex)
             {
                 throw new Exception(ex.Message);
             }
+        }
+
+        public async Task<PainelCards[]> GetAllPaineisCardByPainelAsync(int painelId)
+        {
+            try
+            {
+                var painelCard = await _painelCardsPersist.GetAllPaineisCardByPainelAsync(painelId);
+                if (painelCard == null) return null;
+
+                return painelCard;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+
+        public async Task<dynamic> GetAllCompletePaineisAsync(int situacaoId)
+        {
+            try
+            {
+                var painel = await _painelCardsPersist.GetAllCompletePaineisAsync(situacaoId);
+                if (painel == null) return null;
+
+                return painel;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+
         }
     }
 }

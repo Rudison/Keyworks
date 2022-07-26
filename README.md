@@ -31,6 +31,14 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 clonar o repositorio:
 https://github.com/Rudison/Keyworks.git
 
+## Instalar o Angular 13
+
+npm install -g @angular/cli@13
+
+## Instalar donet
+
+dotnet tool install --global dotnet-ef --version 5.0.2
+
 ## configurar frontend
 
 -> entrar na raiz do projeto Keyworks-App
@@ -38,7 +46,15 @@ instalar o projeto: npm install
 
 ## configurar backend
 
--> entrar em src e rodar as migrations
+-> entrar no diretorio src e rodar as migrations
 dotnet ef migrations add Initial -p .\Keyworks.Persistence\ -s .\Keyworks.API\
--> depois rodar as migrations ainda na raiz src
+
+-> depois rodar as migrations ainda na diretorio src
 dotnet ef database update -s .\Keyworks.API\
+
+## Inicializar Projetos
+
+entrar
+
+- backend -> entrar no diretorio Keyworks.API executar -> dotnet watch run
+- frontend -> entrar no diretorio Keyworks-APP executar -> ng serve
