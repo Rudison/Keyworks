@@ -40,15 +40,15 @@ namespace Keyworks.Persistence
                          join b in _context.Cards on a.CardId equals b.Id
                          join c in _context.Paineis on a.PainelId equals c.Id
                          join d in _context.Titulos on b.TituloId equals d.Id
-                         join e in _context.StatusCards on b.StatusId equals e.Id
-                         join f in _context.SituacaoCards on b.SituacaoId equals f.Id
+                         join e in _context.StatusCards on b.StatusCardId equals e.Id
+                         join f in _context.SituacaoCards on b.SituacaoCardId equals f.Id
                          select new
                          {
                              Id = a.Id,
                              PainelId = c.Id,
                              Titulo = d.Descricao,
                              Status = e.Descricao,
-                             SituacaoId = f.Id,
+                             SituacaoCardId = f.Id,
                              Situacao = f.Descricao,
                              NomeProjeto = b.NomeProjeto,
                              DataPrevisao = b.DataPrevisao,
@@ -57,7 +57,7 @@ namespace Keyworks.Persistence
                              Saldo = b.Saldo,
                              Equipe = b.Equipe
                          }
-                               ).Where(p => p.SituacaoId == situacaoId).ToArrayAsync();
+                               ).Where(p => p.SituacaoCardId == situacaoId).ToArrayAsync();
 
             return await query;
         }

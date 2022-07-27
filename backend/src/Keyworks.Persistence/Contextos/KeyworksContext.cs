@@ -156,8 +156,8 @@ namespace Keyworks.Persistence.Contextos
                 {
                     Id = 1,
                     TituloId = 1, //Desenvol/UX/Financeiro
-                    SituacaoId = 1,//Aguardando/Em Andamento/
-                    StatusId = 1,//Em dia/Atencao
+                    SituacaoCardId = 1,//Aguardando/Em Andamento/
+                    StatusCardId = 1,//Em dia/Atencao
                     NomeProjeto = "CRIAR MIGRATION",
                     DataPrevisao = new DateTime(2022, 07, 26),
                     Descricao = "Usar a branch master, fazer pull",
@@ -169,8 +169,8 @@ namespace Keyworks.Persistence.Contextos
                 {
                     Id = 2,
                     TituloId = 1,
-                    SituacaoId = 1,
-                    StatusId = 2,
+                    SituacaoCardId = 1,
+                    StatusCardId = 2,
                     NomeProjeto = "CRIAR SELECT DO RELATORIO",
                     DataPrevisao = new DateTime(2022, 07, 27),
                     Descricao = "Criar o select para o relatorio de vendas",
@@ -182,8 +182,8 @@ namespace Keyworks.Persistence.Contextos
                 {
                     Id = 3,
                     TituloId = 2,
-                    SituacaoId = 2,
-                    StatusId = 2,
+                    SituacaoCardId = 2,
+                    StatusCardId = 2,
                     NomeProjeto = "CRIAR NOVA HUD",
                     DataPrevisao = new DateTime(2022, 07, 28),
                     Descricao = "Criar nova hud para pontuacao",
@@ -195,8 +195,8 @@ namespace Keyworks.Persistence.Contextos
                  {
                      Id = 4,
                      TituloId = 3, //Desenvol/UX/Financeiro
-                     SituacaoId = 4,//Aguardando/Em Andamento/
-                     StatusId = 1,//Em dia/Atencao
+                     SituacaoCardId = 4,//Aguardando/Em Andamento/
+                     StatusCardId = 1,//Em dia/Atencao
                      NomeProjeto = "CRIAR PAINEL DE CONTROLE",
                      DataPrevisao = new DateTime(2022, 07, 29),
                      Descricao = "Desenvolver o painel conforme os padroes",
@@ -208,8 +208,8 @@ namespace Keyworks.Persistence.Contextos
                  {
                      Id = 5,
                      TituloId = 2,
-                     SituacaoId = 3,
-                     StatusId = 2,
+                     SituacaoCardId = 3,
+                     StatusCardId = 2,
                      NomeProjeto = "CRIAR MIGRATION",
                      DataPrevisao = new DateTime(2022, 07, 30),
                      Descricao = "Usar a branch master, fazer pull",
@@ -221,8 +221,8 @@ namespace Keyworks.Persistence.Contextos
                  {
                      Id = 6,
                      TituloId = 3,
-                     SituacaoId = 2,
-                     StatusId = 3,
+                     SituacaoCardId = 2,
+                     StatusCardId = 3,
                      NomeProjeto = "CRIAR MIGRATION",
                      DataPrevisao = new DateTime(2022, 07, 30),
                      Descricao = "Usar a branch master, fazer pull",
@@ -234,8 +234,8 @@ namespace Keyworks.Persistence.Contextos
                   {
                       Id = 7,
                       TituloId = 3,
-                      SituacaoId = 2,
-                      StatusId = 2,
+                      SituacaoCardId = 2,
+                      StatusCardId = 2,
                       NomeProjeto = "CRIAR MIGRATION",
                       DataPrevisao = new DateTime(2022, 07, 30),
                       Descricao = "Usar a branch master, fazer pull",
@@ -247,8 +247,8 @@ namespace Keyworks.Persistence.Contextos
                  {
                      Id = 8,
                      TituloId = 3,
-                     SituacaoId = 3,
-                     StatusId = 1,
+                     SituacaoCardId = 3,
+                     StatusCardId = 1,
                      NomeProjeto = "CRIAR MIGRATION",
                      DataPrevisao = new DateTime(2022, 07, 30),
                      Descricao = "Usar a branch master, fazer pull",
@@ -260,8 +260,8 @@ namespace Keyworks.Persistence.Contextos
                  {
                      Id = 9,
                      TituloId = 3,
-                     SituacaoId = 3,
-                     StatusId = 3,
+                     SituacaoCardId = 3,
+                     StatusCardId = 3,
                      NomeProjeto = "CRIAR MIGRATION",
                      DataPrevisao = new DateTime(2022, 07, 30),
                      Descricao = "Usar a branch master, fazer pull",

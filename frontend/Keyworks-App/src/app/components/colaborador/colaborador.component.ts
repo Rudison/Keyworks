@@ -22,6 +22,7 @@ export class ColaboradorComponent implements OnInit {
     this.getColaboradores();
   }
 
+  public colaboradorId: number = 0;
   public colaboradores: Colaborador[] = [];
   public colaboradoresFiltrados: Colaborador[] = [];
 
@@ -60,6 +61,10 @@ export class ColaboradorComponent implements OnInit {
   }
 
   public insertColaborador(): void {}
+
+  public excluirColaborador(id: number): void {
+    this.colaboradorService.delete(id);
+  }
 
   openModal(template: TemplateRef<any>): void {
     this.modalRef = this.modalService.show(template, { class: 'modal-sm' });

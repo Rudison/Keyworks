@@ -5,8 +5,8 @@ import { Titulo } from './Titulo';
 export interface Card {
   id: number;
   tituloId: number;
-  statusId: number;
-  situacaoId: number;
+  statusCardId: number;
+  situacaoCardId: number;
   nomeProjeto: string;
   dataPrevisao: Date;
   descricao: string;

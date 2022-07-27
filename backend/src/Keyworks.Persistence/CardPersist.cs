@@ -30,7 +30,7 @@ namespace Keyworks.Persistence
         {
             IQueryable<Card> query = _context.Cards;
 
-            query = query.AsNoTracking().OrderBy(p => p.Id).Where(p => p.StatusId == statusId);
+            query = query.AsNoTracking().OrderBy(p => p.Id).Where(p => p.StatusCardId == statusId);
 
             return await query.ToArrayAsync();
         }

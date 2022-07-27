@@ -19,4 +19,8 @@ export class ColaboradorService {
   public getColaboradorById(id: number): Observable<Colaborador> {
     return this.http.get<Colaborador>(`${this.baseUrl}/${id}`);
   }
+
+  public delete(id: number): Observable<Colaborador> {
+    return this.http.delete<Colaborador>(`${this.baseUrl}/${id}`);
+  }
 }

@@ -9,8 +9,8 @@ namespace Keyworks.Domain
     {
         public int Id { get; set; }// Codigo
         public int TituloId { get; set; }//Desenvolvimento, Ux, financeiro
-        public int StatusId { get; set; } //Em Dia, Atencao, Em Atraso
-        public int SituacaoId { get; set; }//Aguardando, Em Adamento, Pendencia, Finalizado, Outros
+        public int StatusCardId { get; set; } //Em Dia, Atencao, Em Atraso
+        public int SituacaoCardId { get; set; }//Aguardando, Em Adamento, Pendencia, Finalizado, Outros
         public string NomeProjeto { get; set; }
         public DateTime DataPrevisao { get; set; }
         public string Descricao { get; set; }

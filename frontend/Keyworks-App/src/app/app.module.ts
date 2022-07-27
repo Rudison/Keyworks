@@ -32,6 +32,9 @@ import { PainelCardsService } from './services/PainelCards.service';
 import { PainelCardComponent } from './components/painelCard/painelCard.component';
 import { PaineisService } from './services/Paineis.service';
 import { PainelComponent } from './components/Painel/Painel.component';
+import { UserComponent } from './components/user/user.component';
+import { ColaboradorDetalheComponent } from './components/colaborador-detalhe/colaborador-detalhe.component';
+import { ColaboradorListaComponent } from './components/colaborador-lista/colaborador-lista.component';
 
 @NgModule({
   declarations: [
@@ -45,6 +48,9 @@ import { PainelComponent } from './components/Painel/Painel.component';
     SituacaoCardComponent,
     PainelCardComponent,
     PainelComponent,
+    UserComponent,
+    ColaboradorDetalheComponent,
+    ColaboradorListaComponent,
   ],
   imports: [
     BrowserModule,
